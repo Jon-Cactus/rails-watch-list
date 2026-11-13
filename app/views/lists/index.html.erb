@@ -2,7 +2,6 @@
   <div class="container">
     <h1>Save any kind of movies!</h1>
     <p>Create your own lists for any purpose</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
 <div class="container d-flex flex-wrap justify-content-between px-4">
@@ -11,7 +10,7 @@
 </div>
 <div class="container d-flex flex-wrap gap-3 px-4">
   <% @lists.each do |list| %>
-    <div class="card-category w-25" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <div class="card-category w-25" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://happiclap.com/wp-content/uploads/2019/06/Everyday-Clapboard-1.jpg' %>)">
     <%= link_to list.name, list_path(list) %>
     </div>
   <% end %>
