@@ -11,7 +11,8 @@
 <div class="container d-flex flex-wrap gap-3 px-4">
   <% @lists.each do |list| %>
     <div class="card-category w-25" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://happiclap.com/wp-content/uploads/2019/06/Everyday-Clapboard-1.jpg' %>)">
-    <%= link_to list.name, list_path(list) %>
+    <%= list.name%>
+    <%= link_to '', list_path(list), class: 'position-absolute top-0 bottom-0 w-100' %>
     </div>
   <% end %>
 </div>

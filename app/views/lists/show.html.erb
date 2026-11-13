@@ -6,18 +6,18 @@
 <div class="container mb-3 d-flex flex-wrap gap-2">
   <%= link_to "< Back to lists", lists_path, class: "btn btn-info" %>
   <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
-  <%= link_to "Delete", list_path(@list), data: { turbo_method: :delete }, class: "btn btn-danger" %>
+  <%= link_to "Delete list", list_path(@list), data: { turbo_method: :delete }, class: "btn btn-danger" %>
 </div>
-<div class="container d-flex flex-wrap gap-4">
+<div class="container d-flex flex-wrap gap-4 mb-3">
   <% @list.bookmarks.each do |bookmark| %>
-    <div class="card-movie w-50">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-movie w-25">
+      <img src="<%= bookmark.movie.poster_url? ? bookmark.movie.poster_url : 'https://happiclap.com/wp-content/uploads/2019/06/Everyday-Clapboard-1.jpg' %>" />
       <div class="card-movie-infos d-block">
         <div>
           <h2><%= bookmark.movie.title %>・<%= bookmark.movie.rating %>⭐</h2>
           <p class="small-txt my-2"><%= bookmark.movie.overview %></p>
         </div>
-        <div>
+        <div class="d-flex flex-wrap justify-content-between">
           <div class="d-flex flex-wrap gap-1">
             <i class="fa-solid fa-quote-left"></i>
             <p><%= bookmark.comment %></p>
